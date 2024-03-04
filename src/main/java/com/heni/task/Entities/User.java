@@ -1,5 +1,6 @@
 package com.heni.task.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,6 +31,7 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private ROLE role;
     @OneToMany(mappedBy = "user")
+            @JsonIgnore
     List<Transaction> transactions;
 
     @Override
